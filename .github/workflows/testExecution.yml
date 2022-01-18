@@ -15,10 +15,8 @@ jobs:
         with:
           node-version: '16'
           cache: 'npm'
-      - name: Install Dependencies
-        run: npm install
       - name: Run Tests
-        run: npm test
+        run: npm run wdio
       - name: Upload WDIO logs
         if: failure()
         uses: actions/upload-artifact@v2
