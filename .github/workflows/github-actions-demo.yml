@@ -15,3 +15,5 @@ jobs:
         run: npm install
       - name: Run Home Tests
         run: npm run home
+      - name: Run Allure Report
+        run: npm run report-gen

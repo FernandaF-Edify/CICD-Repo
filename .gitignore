@@ -1,0 +1,12 @@
+# Allure folders
+allure-results
+allure-report
+
+#Node Modules
+node_modules
+
+#IDEA files
+.idea
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml

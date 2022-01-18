@@ -1,0 +1,13 @@
+{
+  "HomePageUrl": "https://staging.coursekata.org/",
+  "LoginPageUrl": "https://staging.coursekata.org/login",
+  "PreviewPageUrl": "https://staging.coursekata.org/preview/default/program",
+  "AboutPageUrl": "https://staging.coursekata.org/about",
+  "CollegePageUrl": "https://staging.coursekata.org/college",
+  "ContactusUrl": "https://staging.coursekata.org/contact-us",
+  "HighSchoolUrl": "https://staging.coursekata.org/highschool",
+  "PeopleUrl": "https://staging.coursekata.org/people",
+  "PublicationUrl": "https://staging.coursekata.org/publications",
+  "MyAccountUrl": "https://staging.coursekata.org/my-account",
+  "MyClassesUrl": "https://staging.coursekata.org/teaching/classes"
+}
