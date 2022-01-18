@@ -10,7 +10,12 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Check out node code
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          cache: 'npm'
+      - name: Install Dependencies
+        run: npm install
       - name: Run Home Tests
         run: npm run home
       - name: Run Allure Report
