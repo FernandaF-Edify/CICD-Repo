@@ -15,8 +15,6 @@ jobs:
           node-version: '16'
           cache: 'npm'
       - name: Install Dependencies
-        run: npm install
-      - name: Run Home Tests
-        run: npm run home
+        run: npm run wdio
       - name: Run Allure Report
         run: npm run report-gen
