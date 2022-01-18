@@ -11,8 +11,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Check out node code
         uses: actions/setup-node@v2
-      - name: Install Dependencies
-        run: npm install
       - name: Run Home Tests
         run: npm run home
       - name: Run Allure Report
