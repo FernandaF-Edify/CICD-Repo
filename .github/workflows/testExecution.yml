@@ -25,7 +25,7 @@ jobs:
       # You could also start your server process (take a look at https://github.com/Slashgear/slashgear.github.io/blob/source/.github/workflows/continuous-integration.yml)
 
       # Run your test with the same command you uses locally
-      - run: npx wdio wdio.conf.js --suite highSchool
+      - run: npx wdio run wdio.conf.js
         name: Running E2E tests
 
       # Run your test with the same command you uses locally

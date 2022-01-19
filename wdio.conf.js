@@ -1,19 +1,9 @@
 exports.config = {
     //
     // ====================
-    // BrowserStack Configuration
-    // ====================
-    //
-    user: process.env.BROWSERSTACK_USERNAME,
-    key: process.env.BROWSERSTACK_ACCESS_KEY,
-    //
-    // ====================
-    // Global variables
-    // ====================
-    rol: process.env.ROL,
-    // ====================
     // Runner Configuration
     // ====================
+    //
     //
     // ==================
     // Specify Test Files
@@ -33,41 +23,6 @@ exports.config = {
     specs: [
         './test/specs/**/*.js'
     ],
-    suites: {
-        contactUs: [
-            './test/specs/contactUsTests.e2e.js'
-        ],
-        home: [
-            './test/specs/homeTests.e2e.js'
-        ],
-        about: [
-            './test/specs/aboutTests.e2e.js'
-        ],
-        college: [
-            './test/specs/CollegeTests.e2e.js'
-        ],
-        highSchool: [
-            './test/specs/highSchoolTests.e2e.js'
-        ],
-        publications: [
-            './test/specs/publicationsTests.e2e.js'
-        ],
-        login: [
-            './test/specs/logInTests.e2e.js'
-        ],
-        people: [
-            './test/specs/peopleTests.e2e.js'
-        ],
-        myAccount:[
-            './test/specs/myAccountTests.e2e.js'
-        ],
-        myClasses:[
-            './test/specs/myClassesTests.e2e.js'
-        ],
-        startHere:[
-            './test/specs/startHereTests.e2e.js'
-        ],
-    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -94,46 +49,20 @@ exports.config = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [
-        {
-            // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-            // grid with only 5 firefox instances available you can make sure that not more than
-            // 5 instances get started at a time.
-            maxInstances: 1,
-            browserName: 'chrome', // chrome, firefox, MicrosoftEdge, safari
-            acceptInsecureCerts: true,
-            //browserVersion: '96.0', // browser version
-           // platformName: 'MAC' // MAC, WIN8, XP, WINDOWS platform
-        },
-        // {
-        //     maxInstances: 1,
-        //     browserName: 'safari', // chrome, firefox, MicrosoftEdge, safari
-        //     acceptInsecureCerts: true,
-        //     browserVersion: '15.0', // browser version
-        //     platformName: 'MAC' // MAC, WIN8, XP, WINDOWS platform
-        // },
-        // {
-        //     maxInstances: 1,
-        //     browserName: 'firefox',// chrome, firefox, MicrosoftEdge, safari
-        //     acceptInsecureCerts: true,
-        //     browserVersion: '94.0', // browser version
-        //     platformName: 'MAC' // MAC, WIN8, XP, WINDOWS platform
-        // },
-        // {
-        //     maxInstances: 1,
-        //     browserName: 'MicrosoftEdge', // chrome, firefox, MicrosoftEdge, safari
-        //     acceptInsecureCerts: true,
-        //     browserVersion: '96.0', // browser version
-        //     platformName: 'MAC' // MAC, WIN8, XP, WINDOWS platform
-        // },
-        // {
-        //     maxInstances: 1,
-        //     browserName: 'chrome',// chrome, firefox, MicrosoftEdge, safari
-        //     acceptInsecureCerts: true,
-        //     browserVersion: '96.0', // browser version
-        //     platformName: 'WINDOWS' // MAC, WIN8, XP, WINDOWS platform
-        // },
-    ],
+    capabilities: [{
+    
+        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
+        // grid with only 5 firefox instances available you can make sure that not more than
+        // 5 instances get started at a time.
+        maxInstances: 5,
+        //
+        browserName: 'chrome',
+        acceptInsecureCerts: true
+        // If outputDir is provided WebdriverIO can capture driver session logs
+        // it is possible to configure which logTypes to include/exclude.
+        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
+        // excludeDriverLogs: ['bugreport', 'server'],
+    }],
     //
     // ===================
     // Test Configurations
@@ -165,7 +94,7 @@ exports.config = {
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'https://staging.coursekata.org/',
+    baseUrl: 'http://localhost',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,
@@ -181,8 +110,8 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    // selenium-standalone - browserstack
-    services: ['selenium-standalone'],
+    services: ['chromedriver'],
+    
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber
     // see also: https://webdriver.io/docs/frameworks
@@ -203,11 +132,10 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: [['allure', {
-        outputDir: 'allure-results',
-        disableWebdriverStepsReporting: true,
-        disableWebdriverScreenshotsReporting: true,
-    }], 'spec'],
+    reporters: ['spec'],
+
+
+    
     //
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
@@ -222,7 +150,7 @@ exports.config = {
     // WebdriverIO provides several hooks you can use to interfere with the test process in order to enhance
     // it and to build services around it. You can either apply a single function or an array of
     // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
-    // resolved to continue.--
+    // resolved to continue.
     /**
      * Gets executed once before all workers get launched.
      * @param {Object} config wdio configuration object
@@ -302,6 +230,8 @@ exports.config = {
      */
     // afterTest: function(test, context, { error, result, duration, passed, retries }) {
     // },
+
+
     /**
      * Hook that gets executed after the suite has ended
      * @param {Object} suite suite details
@@ -345,10 +275,10 @@ exports.config = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**
-     * Gets executed when a refresh happens.
-     * @param {String} oldSessionId session ID of the old session
-     * @param {String} newSessionId session ID of the new session
-     */
+    * Gets executed when a refresh happens.
+    * @param {String} oldSessionId session ID of the old session
+    * @param {String} newSessionId session ID of the new session
+    */
     //onReload: function(oldSessionId, newSessionId) {
     //}
 }
