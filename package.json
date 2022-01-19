@@ -9,8 +9,5 @@
         "@wdio/spec-reporter": "^7.16.13",
         "chromedriver": "^97.0.0",
         "wdio-chromedriver-service": "^7.2.6"
-    },
-    "scripts": {
-        "wdio": "wdio run wdio.conf.js"
     }
 }
