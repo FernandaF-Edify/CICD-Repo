@@ -27,7 +27,3 @@ jobs:
       # Run your test with the same command you uses locally
       - run: npx wdio run wdio.conf.js
         name: Running E2E tests
-
-      # Run your test with the same command you uses locally
-      - run: allure generate ./allure-results && allure open
-        name: Allure review
