@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # First you need to install a chromium browser in your runner
-      - name: Install Selenium-Stand Alone
-        run: npm install @wdio/selenium-standalone-service --save-dev
+      - name: Install Chrome driver
+        run: apt-get install chromium-chromedriver
 
       # You fetch the current ref
       - uses: actions/checkout@v2
