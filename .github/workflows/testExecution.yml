@@ -15,7 +15,7 @@ jobs:
             && rm -rf chromedriver_linux64.zip \
             && sudo mv chromedriver /usr/local/bin/chromedriver \
             && sudo chmod +x /usr/local/bin/chromedriver \
-            && chromedriver --version
+            && chromedriver --version \
 
       # You fetch the current ref
       - uses: actions/checkout@v2
