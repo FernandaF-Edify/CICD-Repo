@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # First you need to install a chromium browser in your runner
-      - name: Install Chromium
-        run: sudo apt-get install chromium-browser
+      - name: Install Selenium-Stand Alone
+        run: npm install @wdio/selenium-standalone-service --save-dev
 
       # You fetch the current ref
       - uses: actions/checkout@v2
@@ -18,16 +18,16 @@ jobs:
           node-version: 15.14.0
 
       # Install your dependencies (with yarn, npm no matter)
-      - run: yarn install
+      - run: npm install
         name: Install dependencies
 
       # This is where you could build your app
       # You could also start your server process (take a look at https://github.com/Slashgear/slashgear.github.io/blob/source/.github/workflows/continuous-integration.yml)
 
       # Run your test with the same command you uses locally
-      - run: yarn wdio run wdio.conf.js --suite highSchools
+      - run: npx wdio wdio.conf.js --suite highSchool
         name: Running E2E tests
 
       # Run your test with the same command you uses locally
       - run: allure generate ./allure-results && allure open
-      name: Allure review
+        name: Allure review
